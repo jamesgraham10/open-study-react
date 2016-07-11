@@ -1,6 +1,6 @@
 import React from 'react';
 import Todos from './Todos';
-import Achievements from './Achievements';
+import Activities from './Activities';
 import Chat from './Chat';
 
 export default class Home extends React.Component {
@@ -9,7 +9,7 @@ export default class Home extends React.Component {
       <div className="container">
         <div className="row">
           <Todos />
-          <Achievements />
+          <Activities />
         </div>
         <Chat className="row"/>
       </div>

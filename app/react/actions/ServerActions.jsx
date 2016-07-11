@@ -21,10 +21,16 @@ export default {
       deletedTodo
     })
   },
-  updateTodoProcessed(updatedTodo) {
+  recievedCompletedTodo(completedTodo) {
     AppDispatcher.dispatch({
-      actionType: ActionTypes.UPDATE_TODO_PROCESSED,
-      updatedTodo
+      actionType: ActionTypes.RECIEVED_COMPLETED_TODO,
+      completedTodo
+    })
+  },
+  recievedActivities(rawActivities) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECIEVED_ACTIVITIES,
+      rawActivities
     })
   }
 }

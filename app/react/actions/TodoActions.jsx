@@ -11,7 +11,7 @@ export default {
   deleteTodo(todo) {
     API.deleteTodo(todo);
   },
-  updateTodo(todo) {
-    API.updateTodo(todo);
+  completeTodo(todo) {
+    API.completeTodo(todo);
   }
 }

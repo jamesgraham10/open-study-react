@@ -2,7 +2,7 @@ import ServerActions from "./actions/ServerActions";
 
 let mockTodos = [
   {id: 1, body: 'Buy milk', complete: false},
-  {id: 2, body: 'Get bread', complete: true},
+  {id: 2, body: 'Get bread', complete: false},
   {id: 3, body: 'Go to shops', complete: false},
   {id: 4, body: 'Find local shop', complete: false}
 ]
@@ -29,8 +29,18 @@ export default {
     // Make del request to server, return todos list without todo
     ServerActions.deleteTodoProcessed(todo);
   },
-  updateTodo(todo) {
+  completeTodo(todo) {
     // Make patch request to server, return completed todo
-    ServerActions.updateTodoProcessed(todo);
+    let completedTodo = {
+      id: todo.id,
+      body: todo.body,
+      complete: !todo.complete,
+      completedAt: Date.now() };
+    ServerActions.recievedCompletedTodo(completedTodo);
+  },
+  getAllActivities() {
+    // Hand over empty array for now...
+    let rawActivities = [];
+    ServerActions.recievedActivities(rawActivities);
   }
 }
