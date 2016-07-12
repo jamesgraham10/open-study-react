@@ -3,7 +3,6 @@ import ActionTypes from "../constants";
 
 export default {
   recievedTodos(rawTodos) {
-    console.log(3, "ServerActions.recievedTodos");
     AppDispatcher.dispatch({
       actionType: ActionTypes.RECIEVED_TODOS,
       rawTodos
@@ -31,6 +30,18 @@ export default {
     AppDispatcher.dispatch({
       actionType: ActionTypes.RECIEVED_ACTIVITIES,
       rawActivities
+    })
+  },
+  recievedResources(rawResources) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECIEVED_RESOURCES,
+      rawResources
+    })
+  },
+  recievedOneResource(rawResource) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECIEVED_ONE_RESOURCE,
+      rawResource
     })
   }
 }

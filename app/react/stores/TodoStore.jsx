@@ -16,7 +16,6 @@ AppDispatcher.register( action => {
 
   switch(action.actionType) {
     case ActionTypes.RECIEVED_TODOS:
-      console.log(4, "TodoStore");
       _todos = action.rawTodos;
       TodoStore.emitChange();
       break;

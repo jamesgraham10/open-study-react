@@ -23,7 +23,6 @@ export default class Todos extends React.Component {
     TodoStore.removeChangeListener(this._onChange)
   }
   _onChange() {
-    console.log(5, "_onChange");
     this.setState(getTodoState());
   }
 

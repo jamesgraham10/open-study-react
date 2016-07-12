@@ -1,2 +1,20 @@
+.todo__status--default {
+  text-decoration: none; }
+
+.todo__status--done {
+  text-decoration: line-through;
+  color: #888; }
+
+.chat-msg__time {
+  margin-left: 5px;
+  font-size: 0.7em; }
+
+.chat-msg__context {
+  color: #888;
+  font-size: 0.85em; }
+
+.chat-msg__text {
+  color: #000 !important; }
+
 h1 {
   color: blue; }

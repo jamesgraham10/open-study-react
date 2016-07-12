@@ -23,7 +23,6 @@ export default class Activities extends React.Component {
     ActivityStore.removeChangeListener(this._onChange)
   }
   _onChange() {
-    console.log(5, "_onChange");
     this.setState(getActivityState());
   }
 

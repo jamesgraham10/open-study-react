@@ -2,7 +2,6 @@ import API from "../API";
 
 export default {
   getAllTodos() {
-    console.log(1, "TodoActions");
     API.getAllTodos();
   },
   createTodo(body) {
