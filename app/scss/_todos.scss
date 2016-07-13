@@ -6,3 +6,14 @@
   text-decoration: line-through;
   color: #888;
 }
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.datepicker {
+  width: 20%!important;
+  margin-bottom: 0!important;
+  height: auto!important;
+}

@@ -27435,40 +27435,47 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        '// NAVIGATION HERE',
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Open Study'
-	        ),
-	        _react2.default.createElement(
-	          'ul',
+	          'nav',
 	          null,
 	          _react2.default.createElement(
-	            'li',
-	            null,
+	            'div',
+	            { className: 'nav-wrapper' },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/' },
-	              'Dashboard'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
+	              'a',
+	              { href: '#', className: 'brand-logo' },
+	              'Open Study'
+	            ),
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: 'chat' },
-	              'Chat'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: 'resources' },
-	              'Resources'
+	              'ul',
+	              { id: 'nav-mobile', className: 'right hide-on-med-and-down' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: '/' },
+	                  'Dashboard'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: 'chat' },
+	                  'Chat'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: 'resources' },
+	                  'Resources'
+	                )
+	              )
 	            )
 	          )
 	        ),
@@ -27501,9 +27508,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Todos = __webpack_require__(/*! ./Todos */ 236);
+	var _TodoList = __webpack_require__(/*! ./TodoList */ 236);
 	
-	var _Todos2 = _interopRequireDefault(_Todos);
+	var _TodoList2 = _interopRequireDefault(_TodoList);
 	
 	var _Activities = __webpack_require__(/*! ./Activities */ 250);
 	
@@ -27531,13 +27538,9 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement(_Todos2.default, null),
-	          _react2.default.createElement(_Activities2.default, null)
-	        )
+	        { className: 'row' },
+	        _react2.default.createElement(_TodoList2.default, null),
+	        _react2.default.createElement(_Activities2.default, null)
 	      );
 	    }
 	  }]);
@@ -27549,9 +27552,9 @@
 
 /***/ },
 /* 236 */
-/*!**************************************************!*\
-  !*** ./app/react/components/dashboard/Todos.jsx ***!
-  \**************************************************/
+/*!*****************************************************!*\
+  !*** ./app/react/components/dashboard/TodoList.jsx ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27560,15 +27563,17 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _TodoList = __webpack_require__(/*! ./TodoList */ 237);
+	var _Todo = __webpack_require__(/*! ./Todo */ 237);
 	
-	var _TodoList2 = _interopRequireDefault(_TodoList);
+	var _Todo2 = _interopRequireDefault(_Todo);
 	
 	var _TodoEditor = __webpack_require__(/*! ./TodoEditor */ 238);
 	
@@ -27596,20 +27601,20 @@
 	  return { todosList: _TodoStore2.default.getAll() };
 	};
 	
-	var Todos = function (_React$Component) {
-	  _inherits(Todos, _React$Component);
+	var TodoList = function (_React$Component) {
+	  _inherits(TodoList, _React$Component);
 	
-	  function Todos(props) {
-	    _classCallCheck(this, Todos);
+	  function TodoList(props) {
+	    _classCallCheck(this, TodoList);
 	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Todos).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TodoList).call(this, props));
 	
 	    _this.state = getTodoState();
 	    _this._onChange = _this._onChange.bind(_this);
 	    return _this;
 	  }
 	
-	  _createClass(Todos, [{
+	  _createClass(TodoList, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      _TodoStore2.default.addChangeListener(this._onChange);
@@ -27627,34 +27632,52 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var todos = this.state.todosList.map(function (todo) {
+	        return _react2.default.createElement(_Todo2.default, _extends({ key: todo.id }, todo));
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'col s12 m6' },
-	        _react2.default.createElement(_TodoEditor2.default, null),
-	        _react2.default.createElement(_TodoList2.default, { todos: this.state.todosList })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'card' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'collection with-header' },
+	            _react2.default.createElement(
+	              'li',
+	              { className: 'collection-header' },
+	              _react2.default.createElement(
+	                'h4',
+	                null,
+	                'Tasks'
+	              )
+	            ),
+	            todos,
+	            _react2.default.createElement(_TodoEditor2.default, null)
+	          )
+	        )
 	      );
 	    }
 	  }]);
 	
-	  return Todos;
+	  return TodoList;
 	}(_react2.default.Component);
 	
-	exports.default = Todos;
+	exports.default = TodoList;
 
 /***/ },
 /* 237 */
-/*!*****************************************************!*\
-  !*** ./app/react/components/dashboard/TodoList.jsx ***!
-  \*****************************************************/
+/*!*************************************************!*\
+  !*** ./app/react/components/dashboard/Todo.jsx ***!
+  \*************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -27662,9 +27685,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Todo = __webpack_require__(/*! ./Todo */ 366);
+	var _TodoActions = __webpack_require__(/*! ../../actions/TodoActions */ 239);
 	
-	var _Todo2 = _interopRequireDefault(_Todo);
+	var _TodoActions2 = _interopRequireDefault(_TodoActions);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -27674,34 +27697,58 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var TodoList = function (_React$Component) {
-	  _inherits(TodoList, _React$Component);
+	var Todo = function (_React$Component) {
+	  _inherits(Todo, _React$Component);
 	
-	  function TodoList() {
-	    _classCallCheck(this, TodoList);
+	  function Todo() {
+	    _classCallCheck(this, Todo);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(TodoList).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Todo).apply(this, arguments));
 	  }
 	
-	  _createClass(TodoList, [{
-	    key: "render",
-	    value: function render() {
-	      var todos = this.props.todos.map(function (todo) {
-	        return _react2.default.createElement(_Todo2.default, _extends({ key: todo.id }, todo));
+	  _createClass(Todo, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      $('.datepicker').pickadate({
+	        selectMonths: true, // Creates a dropdown to control month
+	        selectYears: 15 // Creates a dropdown of 15 years to control year
 	      });
-	
+	    }
+	  }, {
+	    key: 'deleteTodo',
+	    value: function deleteTodo() {
+	      _TodoActions2.default.deleteTodo(this.props);
+	    }
+	  }, {
+	    key: 'completeTodo',
+	    value: function completeTodo() {
+	      _TodoActions2.default.completeTodo(this.props);
+	    }
+	  }, {
+	    key: 'addDate',
+	    value: function addDate() {
+	      console.log("hey!");
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
 	      return _react2.default.createElement(
-	        "ul",
-	        null,
-	        todos
+	        'li',
+	        { className: "collection-item todo-item todo__status--" + (this.props.complete ? 'done' : 'default') },
+	        _react2.default.createElement(
+	          'span',
+	          { onClick: this.completeTodo.bind(this) },
+	          this.props.body
+	        ),
+	        _react2.default.createElement('input', { placeholder: 'Due date...', className: 'datepicker' })
 	      );
 	    }
 	  }]);
 	
-	  return TodoList;
+	  return Todo;
 	}(_react2.default.Component);
 	
-	exports.default = TodoList;
+	exports.default = Todo;
 
 /***/ },
 /* 238 */
@@ -27754,23 +27801,9 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Your Todos'
-	        ),
-	        _react2.default.createElement(
-	          'form',
-	          { onSubmit: this.createTodo.bind(this) },
-	          _react2.default.createElement('input', { placeholder: 'Add a todo...', ref: 'todoInput', type: 'text' }),
-	          _react2.default.createElement(
-	            'button',
-	            { type: 'submit' },
-	            'Add'
-	          )
-	        )
+	        'form',
+	        { className: 'collection-item', onSubmit: this.createTodo.bind(this) },
+	        _react2.default.createElement('input', { placeholder: 'Add a task...', ref: 'todoInput', type: 'text' })
 	      );
 	    }
 	  }]);
@@ -28403,7 +28436,7 @@
 	      TodoStore.emitChange();
 	      break;
 	    case _constants2.default.RECIEVED_ONE_TODO:
-	      _todos.unshift(action.rawTodo);
+	      _todos.push(action.rawTodo);
 	      TodoStore.emitChange();
 	      break;
 	    case _constants2.default.RECIEVED_COMPLETED_TODO:
@@ -44130,79 +44163,6 @@
 	});
 	
 	exports.default = ResourceStore;
-
-/***/ },
-/* 366 */
-/*!*************************************************!*\
-  !*** ./app/react/components/dashboard/Todo.jsx ***!
-  \*************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _TodoActions = __webpack_require__(/*! ../../actions/TodoActions */ 239);
-	
-	var _TodoActions2 = _interopRequireDefault(_TodoActions);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Todo = function (_React$Component) {
-	  _inherits(Todo, _React$Component);
-	
-	  function Todo() {
-	    _classCallCheck(this, Todo);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Todo).apply(this, arguments));
-	  }
-	
-	  _createClass(Todo, [{
-	    key: 'deleteTodo',
-	    value: function deleteTodo() {
-	      _TodoActions2.default.deleteTodo(this.props);
-	    }
-	  }, {
-	    key: 'completeTodo',
-	    value: function completeTodo() {
-	      _TodoActions2.default.completeTodo(this.props);
-	    }
-	  }, {
-	    key: 'addDate',
-	    value: function addDate() {
-	      console.log("hey!");
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'li',
-	        { className: "todo__status--" + (this.props.complete ? 'done' : 'default'),
-	          onClick: this.completeTodo.bind(this)
-	        },
-	        this.props.body
-	      );
-	    }
-	  }]);
-	
-	  return Todo;
-	}(_react2.default.Component);
-	
-	exports.default = Todo;
 
 /***/ }
 /******/ ]);

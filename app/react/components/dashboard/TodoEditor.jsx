@@ -9,13 +9,9 @@ export default class TodoEditor extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h3>Your Todos</h3>
-        <form onSubmit={this.createTodo.bind(this)}>
-          <input placeholder="Add a todo..." ref="todoInput" type="text"></input>
-          <button type="submit">Add</button>
-        </form>
-      </div>
+      <form className="collection-item" onSubmit={this.createTodo.bind(this)}>
+        <input placeholder="Add a task..." ref="todoInput" type="text"></input>
+      </form>
     )
   }
 }

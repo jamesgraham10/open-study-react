@@ -20,7 +20,7 @@ AppDispatcher.register( action => {
       TodoStore.emitChange();
       break;
     case ActionTypes.RECIEVED_ONE_TODO:
-      _todos.unshift(action.rawTodo);
+      _todos.push(action.rawTodo);
       TodoStore.emitChange();
       break;
     case ActionTypes.RECIEVED_COMPLETED_TODO:
