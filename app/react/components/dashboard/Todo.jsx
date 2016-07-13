@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoActions from '../actions/TodoActions';
+import TodoActions from '../../actions/TodoActions';
 
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';

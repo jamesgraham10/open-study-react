@@ -1,8 +1,8 @@
 import React from 'react';
-import ActivityStore from '../stores/ActivityStore';
+import ActivityStore from '../../stores/ActivityStore';
 import Activity from "./Activity";
 
-import ActivityActions from '../actions/ActivityActions';
+import ActivityActions from '../../actions/ActivityActions';
 ActivityActions.getAllActivities();
 
 let getActivityState = () => {

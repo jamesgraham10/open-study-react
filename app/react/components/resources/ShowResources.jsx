@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import Resource from "./Resource";
-import ResourceStore from '../stores/ResourceStore';
-import ResourceActions from '../actions/ResourceActions';
+import ResourceStore from '../../stores/ResourceStore';
+import ResourceActions from '../../actions/ResourceActions';
 
 ResourceActions.getAllResources();
 

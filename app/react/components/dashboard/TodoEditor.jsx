@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoActions from '../actions/TodoActions';
+import TodoActions from '../../actions/TodoActions';
 
 export default class TodoEditor extends React.Component {
   createTodo(event) {

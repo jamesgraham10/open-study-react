@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import ResourceActions from '../actions/ResourceActions';
+import ResourceActions from '../../actions/ResourceActions';
 
 export default class Resources extends React.Component {
   componentDidMount() {

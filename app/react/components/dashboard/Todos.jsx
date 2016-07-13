@@ -1,9 +1,9 @@
 import React from 'react';
 import TodoList from './TodoList';
 import TodoEditor from './TodoEditor';
-import TodoStore from '../stores/TodoStore';
+import TodoStore from '../../stores/TodoStore';
 
-import TodoActions from '../actions/TodoActions';
+import TodoActions from '../../actions/TodoActions';
 TodoActions.getAllTodos();
 
 let getTodoState = () => {
