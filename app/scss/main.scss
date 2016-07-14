@@ -3,6 +3,11 @@
 @import 'typography';
 @import 'utilities';
 
+body {
+  overflow-x: hidden;
+}
+
+
 h1 {
   color: blue;
 }

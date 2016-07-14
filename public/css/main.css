@@ -28,6 +28,7 @@
 
 .chat-list {
   overflow: scroll;
+  overflow-x: hidden;
   height: 65vh;
   margin-bottom: 0px !important; }
 
@@ -46,7 +47,6 @@
   min-height: 60px !important; }
 
 .chat-container {
-  border: solid 1px #666 !important;
   padding: 1em !important; }
 
 .user-list {
@@ -69,6 +69,9 @@
 
 .display-none {
   display: none; }
+
+body {
+  overflow-x: hidden; }
 
 h1 {
   color: blue; }
