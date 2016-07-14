@@ -6,7 +6,9 @@ let _todos = [];
 
 class TodoEventEmitter extends AppEventEmitter {
 
-  getAll() { return _todos }
+  getAll() {
+    return _todos;
+  }
 
 }
 

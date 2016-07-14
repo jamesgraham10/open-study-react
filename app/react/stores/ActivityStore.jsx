@@ -6,7 +6,9 @@ let _activities = [];
 
 class ActivityEventEmitter extends AppEventEmitter {
 
-  getAll() { return _activities }
+  getAll() {
+    return _activities;
+   }
 
 }
 
@@ -17,7 +19,7 @@ AppDispatcher.register( action => {
   switch(action.actionType) {
 
     case ActionTypes.RECIEVED_COMPLETED_TODO:
-      if (action.completedTodo.complete) { _activities.unshift(action.completedTodo); }
+      if (action.completedTodo.complete) { _activities.push(action.completedTodo); }
       else { _activities = _activities.filter( activity => activity.id != action.completedTodo.id ); }
       ActivityStore.emitChange();
       break;
