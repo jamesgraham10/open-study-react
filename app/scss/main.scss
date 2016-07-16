@@ -1,12 +1,8 @@
-@import 'todos';
-@import 'chat';
 @import 'typography';
 @import 'utilities';
-
-body {
-  overflow-x: hidden;
-}
-
+@import 'todos';
+@import 'chat';
+@import 'resources';
 
 h1 {
   color: blue;

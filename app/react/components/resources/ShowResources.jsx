@@ -29,7 +29,7 @@ export default class ShowResources extends React.Component {
   render() {
     let resources = this.state.resourceList.map( resource => <Resource key={resource.id} {...resource} />)
     return (
-      <ul>
+      <ul className="collection">
         {resources}
       </ul>
     )

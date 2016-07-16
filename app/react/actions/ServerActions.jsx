@@ -43,5 +43,11 @@ export default {
       actionType: ActionTypes.RECIEVED_ONE_RESOURCE,
       rawResource
     })
+  },
+  recievedEditedResource(editedResource) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECIEVED_EDITED_RESOURCE,
+      editedResource
+    })
   }
 }

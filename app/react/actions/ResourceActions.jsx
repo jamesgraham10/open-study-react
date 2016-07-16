@@ -7,10 +7,10 @@ export default {
   createResource(resource) {
     API.createResource(resource);
   },
+  editResourceUpvotes(resource) {
+    API.editResourceUpvotes(resource);
+  },
   deleteResource(resource) {
     API.deleteResource(resource);
-  },
-  completeResource(resource) {
-    API.completeResource(resource);
   }
 }

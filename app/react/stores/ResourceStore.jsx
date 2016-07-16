@@ -7,7 +7,7 @@ let _resources = [];
 class ResourceEventEmitter extends AppEventEmitter {
 
   getAll() {
-    return _resources.sort( (a, b) => { return a.upvotes - b.upvotes }).reverse(); 
+    return _resources.sort( (a, b) => { return a.upvotes - b.upvotes }).reverse();
   }
 
 }
@@ -23,6 +23,12 @@ AppDispatcher.register( action => {
       break;
     case ActionTypes.RECIEVED_ONE_RESOURCE:
       _resources.unshift(action.rawResource);
+      ResourceStore.emitChange();
+      break;
+    case ActionTypes.RECIEVED_EDITED_RESOURCE:
+      _resources.forEach( (resource) => {
+        resource.id === action.editedResource.id ? resource.upvotes = action.editedResource.upvotes : null;
+      });
       ResourceStore.emitChange();
       break;
     default:

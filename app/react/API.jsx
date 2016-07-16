@@ -81,5 +81,19 @@ export default {
     // send to rails, get response
     let rawResource = newResource;
     ServerActions.recievedOneResource(rawResource);
+  },
+  editResourceUpvotes(resource) {
+    // check with rails: if upvote, check if already upvoted
+    let editedResource = {
+      id: resource.resource.id,
+      link: resource.resource.link,
+      title: resource.resource.title,
+      type: resource.resource.type,
+      upvotes: resource.resource.upvotes,
+      description: resource.resource.description
+    }
+    console.log(editedResource);
+    resource.upvote ? editedResource.upvotes += 1 : editedResource.upvotes -= 1;
+    ServerActions.recievedEditedResource(editedResource);
   }
 }

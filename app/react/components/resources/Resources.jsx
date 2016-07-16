@@ -7,7 +7,7 @@ export default class Resources extends React.Component {
       <div className="container">
         <div className="row">
           <Link to="resources/new">
-            <span className="col s1 offset-s10">Add <i className="small material-icons">library_add</i></span>
+            <span className="col s1 offset-s10">Add <i className="small material-icons">note_add</i></span>
           </Link>
         </div>
         {this.props.children}
